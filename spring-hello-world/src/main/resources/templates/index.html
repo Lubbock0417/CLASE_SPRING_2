@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<tittle th:text="${titulo}"></tittle>
+</head>
+<body>
+	<div class="container py-4">
+		<h1 class="color-rojo" th:text="${titulo}">
+		</h1>
+		<h2 class="color-azul">Hola Usuario, Bienvenido a Spring!!</h2>
+		<div th:if="${personal?.id == 0}">No pudimos recuperar la información del personal,
+		verifica tu BD
+		</div>
+		
+			<table th:if="${personal?.id != 0}">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Cargo</th>
+					<th>Estado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${personal?.id}"></td>
+					<td th:text="${personal?.nombre}"></td>
+					<td th:text="${personal?.cargo}"></td>
+					<td th:text="${personal?.estado}"></td>
+				</tr>
+			</tbody>
+			</table>
+	</div>
+</body>
+</html>
